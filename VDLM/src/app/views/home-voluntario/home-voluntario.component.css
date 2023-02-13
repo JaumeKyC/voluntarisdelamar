@@ -1,7 +1,7 @@
 .card1 {
     background: rgb(220, 220, 220);
     margin: 50px;
-    height: 25em;
+    height: 18em;
     display: flex;
     align-items: center;
     transition: 500ms;
@@ -11,7 +11,7 @@
 .card2 {
     background: rgb(220, 220, 220);
     margin: 50px;
-    height: 25em;
+    height: 18em;
     display: flex;
     align-items: center;
 
