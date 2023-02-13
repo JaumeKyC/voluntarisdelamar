@@ -18,6 +18,8 @@ import { DetalleFormacionesVoluntarioComponent } from './views/detalle-formacion
 import { FormularioAltaComponent } from './views/formulario-alta/formulario-alta.component';
 import { PerfilAdminComponent } from './views/perfil-admin/perfil-admin.component';
 import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-voluntario.component';
+import { DetalleVoluntariosComponent } from './views/perfil-voluntario/views/detalle-voluntarios/detalle-voluntarios.component';
+import { DetalleAdminComponent } from './views/detalle-admin/detalle-admin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-volu
     DetalleFormacionesVoluntarioComponent,
     FormularioAltaComponent,
     PerfilAdminComponent,
-    PerfilVoluntarioComponent
+    PerfilVoluntarioComponent,
+    DetalleVoluntariosComponent,
+    DetalleAdminComponent
   ],
   imports: [
     BrowserModule,
