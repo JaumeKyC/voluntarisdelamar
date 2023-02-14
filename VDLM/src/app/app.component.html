@@ -1,7 +1,10 @@
-<app-header></app-header>
-<main>
-  
-  <router-outlet>
-    <app-detalle-voluntarios></app-detalle-voluntarios>
-  </router-outlet>
-</main>
+<div *ngIf="loggeado==false; else elseBlock">
+  <app-login></app-login>
+</div>
+
+<ng-template #elseBlock>
+  <app-header></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</ng-template>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalleVoluntariosComponent } from './views/detalle-voluntarios/detalle-voluntarios.component';
+
 import { LoginComponent } from './views/login/login.component';
 import { HomeAdminComponent } from './views/home-admin/home-admin.component';
 import { HomeVoluntarioComponent } from './views/home-voluntario/home-voluntario.component';
@@ -15,7 +15,6 @@ import { DetalleFormacionesVoluntarioComponent } from './views/detalle-formacion
 import { PerfilAdminComponent } from './views/perfil-admin/perfil-admin.component';
 import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-voluntario.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'homeVoluntaris', pathMatch: 'full' },
   { path: 'home_voluntaris', component: HomeVoluntarioComponent },
@@ -25,11 +24,9 @@ const routes: Routes = [
   { path: 'listadoFormacionesVoluntari', component: ListaFormacionesVoluntarioComponent },
   { path: 'perfil_usuario', component: PerfilVoluntarioComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'detalleVoluntari', component: DetalleVoluntariosComponent },
 
   
   ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
