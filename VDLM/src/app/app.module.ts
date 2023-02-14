@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,11 +20,13 @@ import { DetalleFormacionesVoluntarioComponent } from './views/detalle-formacion
 import { FormularioAltaComponent } from './views/formulario-alta/formulario-alta.component';
 import { PerfilAdminComponent } from './views/perfil-admin/perfil-admin.component';
 import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-voluntario.component';
+import { DetalleVoluntariosComponent } from './views/detalle-voluntarios/detalle-voluntarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+   
     LoginComponent,
     HomeAdminComponent,
     HomeVoluntarioComponent,
@@ -36,13 +40,19 @@ import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-volu
     DetalleFormacionesVoluntarioComponent,
     FormularioAltaComponent,
     PerfilAdminComponent,
-    PerfilVoluntarioComponent
+    PerfilVoluntarioComponent,
+    DetalleVoluntariosComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+  
 })
+
+
 export class AppModule { }
