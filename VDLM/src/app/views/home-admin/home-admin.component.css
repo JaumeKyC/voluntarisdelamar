@@ -1,0 +1,27 @@
+.card1 {
+    background: rgb(220, 220, 220);
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+    transition: 500ms;
+}
+
+
+.card2 {
+    background: rgb(220, 220, 220);
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+
+}
+
+/* .card1 a, .card2 a {
+    text-decoration:none;
+} */
+
+a{
+    text-decoration:none;
+}
+

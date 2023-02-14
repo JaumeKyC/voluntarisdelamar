@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-admin.component.css']
 })
 export class HomeAdminComponent {
-
+  miImagen = 'img/mi-imagen.jpg';
 }
