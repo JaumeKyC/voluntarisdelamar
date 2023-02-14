@@ -6,11 +6,15 @@
       
       <a class="navbar-brand" [routerLink]="['home_voluntaris']"><img class="imagen_logo_cabecera" src="assets/images/logoVoluntaris.png"></a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <p class="text-white mt-3" [routerLink]="['perfil_usuario']">Nombre</p>
-            <p class="text-white mt-3" [routerLink]="['perfil_usuario']">Apellido 1</p>
-            <p class="text-white mt-3" [routerLink]="['perfil_usuario']">Apellido 2</p>
-        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+        <div class="row">
+            <div class="col-10">
+                <p class="text-white mt-3" [routerLink]="['perfil_usuario']">{{nombre_apellidos}}</p>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
 
         <div class="row">
             <div class="col-6">
@@ -26,7 +30,6 @@
                 </svg>
             </div>
         </div>
-        
       </div>
     </div>
   </nav>

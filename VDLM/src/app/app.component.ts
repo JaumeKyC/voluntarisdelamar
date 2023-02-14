@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'VDLM';
+  loggeado: boolean = false;
+
+  constructor (public router: Router) {
+
+    if(this.loggeado == true && this.router.url == "/login") {
+      console.log('HOLA');
+      this.router.navigate(['/']);
+    } 
+
+  }
+
 }
