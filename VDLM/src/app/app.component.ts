@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'VDLM';
-  loggeado: boolean = false;
+  loggeado: boolean = true;
+
+  public nombre_usuario = localStorage.setItem('nombre_usuario','Raul');
+  public apellido1 = localStorage.setItem('apellido1','Hernandez');
+  public apellido2 = localStorage.setItem('apellido2','Saez');
 
   constructor (public router: Router) {
 
     if(this.loggeado == true && this.router.url == "/login") {
-      console.log('HOLA');
       this.router.navigate(['/']);
     } 
 

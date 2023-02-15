@@ -1,0 +1,22 @@
+.card1 {
+    background-image: url('eventos.png');
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+    transition: 500ms;
+}
+
+
+.card2 {
+    background-image: url('formacion.png');
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+
+}
+
+.card1 a, .card2 a {
+    text-decoration:none;
+}

@@ -19,13 +19,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'homeVoluntaris', pathMatch: 'full' },
   { path: 'home_voluntaris', component: HomeVoluntarioComponent },
   { path: 'listado_eventos_admin', component: ListaEventoAdminComponent },
-  { path: 'listadoEventosVoluntari', component: ListaEventoVoluntarioComponent },
-  { path: 'listadoFormacionesAdmin', component: ListaFormacionesAdminComponent },
-  { path: 'listadoFormacionesVoluntari', component: ListaFormacionesVoluntarioComponent },
+  { path: 'listado_eventos', component: ListaEventoVoluntarioComponent },
+  { path: 'listado_formaciones_admin', component: ListaFormacionesAdminComponent },
+  { path: 'listado_formaciones', component: ListaFormacionesVoluntarioComponent },
   { path: 'perfil_usuario', component: PerfilVoluntarioComponent },
   { path: 'login', component: LoginComponent },
-
-  
   ];
 
 @NgModule({
