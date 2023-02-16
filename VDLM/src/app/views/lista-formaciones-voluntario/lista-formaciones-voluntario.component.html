@@ -1,1 +1,32 @@
-<p>lista-formaciones-voluntario works!</p>
+<div class="container">
+    <h2 class="text-center mt-3">FORMACIONES</h2>
+    <div class="row mt-4">
+        <div class="col-3">
+            <h5>FILTRAR</h5>
+            <span>Nombre de la formación</span>
+            <br>
+            <input placeholder="Buscar">
+            <br>
+            <div class="mt-2">
+                <span>Fecha</span>
+                <br>
+                <input placeholder="--/--/--">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Nombre Formación</h4>
+                  <p class="card-text">Breve descripción de la formación. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <p>Inicio: <span id="datoResaltado"> 15-04-2023 08:30 </span></p>
+                  <p>Fecha Fin: <span id="datoResaltado"> 16-04-2023 16:30 </span></p>
+                  <p>Voluntarios: <span id="datoResaltado"> 21 / 40</span></p>
+                  <div class="d-grid gap-2 d-md-block">
+                    <button [routerLink]="['/detalle_formaciones']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
+                    <button [ngStyle]="['disabled', 'estadoBoton']" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #6666ff; color: white" type="button">UNIRSE</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

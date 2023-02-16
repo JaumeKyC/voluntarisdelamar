@@ -3,17 +3,13 @@
     <div class="row align-items-center justify-content-center">
         <div class="col-1"></div>
         <div class="col-md-4">
-            <div class="card1 justify-content-center rounded-5 shadow">
-                <a [routerLink]="['/listado_eventos']">
+            <div [routerLink]="['/listado_eventos']" style="cursor: pointer;" class="card1 justify-content-center rounded-5 shadow">
                     <h1 class="text-white">EVENTOS</h1>
-                </a>
             </div> 
         </div>
         <div class="col-md-4">
-            <div class="card2 justify-content-center rounded-5 shadow">
-                <a [routerLink]="['/listado_formaciones']">
-                    <h1 class="text-white">FORMACIÓN</h1>
-                </a>
+            <div [routerLink]="['/listado_formaciones']" style="cursor: pointer;" class="card2 justify-content-center rounded-5 shadow">
+                <h1 class="text-white">FORMACIÓN</h1>
             </div>
         </div>
         <div class="col-1"></div>

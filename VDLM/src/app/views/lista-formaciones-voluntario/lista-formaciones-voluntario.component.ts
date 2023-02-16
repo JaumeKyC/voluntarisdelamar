@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class ListaFormacionesVoluntarioComponent {
 
+  public unirse() {
+    console.log('TE HAS UNIDO');
+  }
+
 }

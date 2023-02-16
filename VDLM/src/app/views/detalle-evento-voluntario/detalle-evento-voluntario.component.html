@@ -1,1 +1,17 @@
-<p>detalle-evento-voluntario works!</p>
+<div class="container">
+    <h2 class="text-center mt-3">{{titulo_evento}}</h2>
+    <div class="areaEvento">
+        <p class="mt-4 text-justify">{{descripcion_evento}}</p>
+        <span id="datoResaltado">LUGAR</span>
+        <p>{{lugar_evento}}</p>
+        <span id="datoResaltado">HORA INICIO</span>
+        <p>{{hora_inicio}}</p>
+        <p><span id="datoResaltado"> HORA FIN: </span> 
+        <p>{{hora_fin}} </p>
+        <h5 id="contadorVoluntarios">VOLUNTARIOS: {{contador_voluntarios}} / {{maximo_voluntarios}} </h5>
+        <p class="text-center">
+          <button [ngStyle]="['disabled', 'estadoBoton']" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" type="button">UNIRSE</button>
+        </p>
+    </div>
+</div>
+  
