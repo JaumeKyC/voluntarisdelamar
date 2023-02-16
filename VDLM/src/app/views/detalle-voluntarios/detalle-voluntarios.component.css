@@ -1,0 +1,14 @@
+.card {
+    border: 1px solid #ccc;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .card {
+      margin-top: 3rem;
+    }
+  }
+  
