@@ -16,7 +16,7 @@ import { PerfilAdminComponent } from './views/perfil-admin/perfil-admin.componen
 import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-voluntario.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'homeVoluntaris', pathMatch: 'full' },
+  { path: '', redirectTo: 'home_voluntaris', pathMatch: 'full' },
   { path: 'home_voluntaris', component: HomeVoluntarioComponent },
   { path: 'listado_eventos_admin', component: ListaEventoAdminComponent },
   { path: 'listadoEventosVoluntari', component: ListaEventoVoluntarioComponent },
