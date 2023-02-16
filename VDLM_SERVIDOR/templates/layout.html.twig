@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<!--HEADER-->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4774b7;">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand"><img class="imagen_logo_cabecera" src="/css/LOGO2.png"  width="225" height="80"></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <div class="col-7">
+            <h5 style="color:#232428;">Panel de Administradores</h5>
+        </div>
+            <div class="col-3 text-end mt-2">
+                <a href="{{ path('app_menu') }}"><h5 id="icons">{{nombre.getNombre()}} {{nombre.getApellidos()}}</h5></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href="{{ path('app_menu') }}"><i id="icons" class="fa-solid fa-house fa-2xl"></i></a>
+            </div>
+            <div class="col-1 text-start">
+                <a href="{{ path('app_login') }}"><i id="icons" class="fa-solid fa-power-off fa-2xl"></i></a>
+            </div>
+      </div>
+    </div>
+</nav>
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+        <ul>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-1">
+                        <a id="link" href="{{ path('app_menu') }}"><h5>Home</h5></a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-5">
+                        <a id="link" href="{{ path('app_login') }}"><h5>Cerrar Sesión</h5></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--/HEADER-->
+	{% block content %}
+
+	{% endblock %}
+{% endblock %}

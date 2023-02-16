@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+    <h3 class="text-center mt-4 mb-4">VOLUNTARIOS</h3>
+    {% set elementsPerPage = 20 %} 
+	{% set lowerLimit = (page -1) * elementsPerPage + 1 %} 
+	{% set upperLimit = page * elementsPerPage %}
+    <div class"row text-center">
+        <table class="table table-hover">
+            <tbody>
+            {% for task in data %}
+                {% if loop.index >= lowerLimit and loop.index <= upperLimit %}
+                <tr class="d-flex">
+                    <td class="offset-1 col-4"><a id="nuevo" href='#'>{{task.getNombre()}} {{task.getApellidos()}}</a></td>
+                    <td class="col-4">{{task.getTelefono()}}</td>
+                    <td class="col-1 text-center"><a id="nuevo" href='#'><i class="fa-solid fa-pen-to-square fa-xl"></i></a></td>
+                    <td class="col-1 text-center"><a id="nuevo" href='#'><i class="fa-solid fa-trash-can fa-xl"></i></a></td>
+                </tr>
+                {% endif %}
+			{% endfor %}
+            </tbody>
+        </table>
+        {% set totalPages = (((data|length)/elementsPerPage)|round(0, 'ceil')) %}
+    </div>
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2 text-center">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listUsuarios', {page: 1}) }}">&lt;&lt; </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listUsuarios', {page: page - 1}) }}">&lt;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <span class="page-link disabled">&lt;&lt;</span>
+                    </li>
+                    <li class="page-item">
+                        <span class="page-link disabled">&lt;</span>
+                    </li>
+                {% endif %}
+                {% for pageButton in 1..totalPages %}
+                    {% if pageButton == page%}
+                        <li class="page-item"><span class="page-link bg-light">{{ pageButton }}</span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path('app_listUsuarios', {page: pageButton}) }}">{{ pageButton }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page < totalPages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listUsuarios', {page: page + 1}) }}">&gt;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listUsuarios', {page: totalPages}) }}">&gt;&gt;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <span class="page-link disabled" >&gt;</span>
+                    </li>
+                    <li class="page-item">
+                        <span class="page-link disabled">&gt;&gt;</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+{% endblock %}

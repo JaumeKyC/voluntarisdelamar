@@ -1,0 +1,47 @@
+#card1 {
+    background-image: url('EVENTOS.png'); height: 100vh; background-size: cover; background-repeat: no-repeat;
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+}
+
+#card1:hover {
+    background-image: url('EVENTOS.png'); height: 100vh; background-size: cover; background-repeat: no-repeat; filter: grayscale(100%);
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+}
+
+#card2 {
+    background-image: url('FORMACION.png'); height: 100vh; background-size: cover; background-repeat: no-repeat;
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+}
+
+#card2:hover {
+    background-image: url('FORMACION.png'); height: 100vh; background-size: cover; background-repeat: no-repeat; filter: grayscale(100%);
+    margin: 50px;
+    height: 18em;
+    display: flex;
+    align-items: center;
+}
+
+#nuevo{
+    color: #232428;
+}
+
+#nuevo:hover{
+    color: #4774b7;
+}
+
+#alta{
+    background-color: #4774b7;
+}
+
+#alta:hover{
+    background-color: #232428;
+}

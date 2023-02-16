@@ -1,0 +1,21 @@
+#submit{
+    background-color:#4774b7 !important;
+    border-color: #4774b7 !important;
+    padding-left: 115px;
+    padding-right: 110px;
+}
+
+#submit:hover{
+    background-color: #232428 !important;
+    border-color: #232428 !important;
+}
+
+#admin{
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+#switch{
+    margin-top: 7px;
+}
+

@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class="container px-4">
+    <h3 class="text-center pt-5" style="color:#232428;">Hola {{nombre.getNombre()}} {{nombre.getApellidos()}}</h3>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-md-4">
+            <div id="card1" class="card justify-content-center rounded-5 shadow">
+                <a href="#">
+                    <h1 class="text-white">EVENTOS</h1>
+                </a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h4><a id="nuevo"  href="#"><i class="fa-solid fa-plus fa-xl"></i> EVENTOS</a></h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="card2" class="card justify-content-center rounded-5 shadow">
+                <a href="#">
+                    <h1 class="text-white">FORMACIÓN</h1>
+                </a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h4><a id="nuevo" href="#"><i class="fa-solid fa-plus fa-xl"></i> FORMACIÓN</a></h4>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+
+    <div class="row pt-5">
+        <div class="col text-center">
+            <a href="{{ path('app_altaUsuarios') }}">
+            <button id="alta" type="button" class="btn btn-secondary btn-lg">DAR DE ALTA NUEVO VOLUNTARIO</button>
+            </a>
+        </div>
+    </div>
+        <div class="row pt-4">
+        <div class="col text-center">
+            <a href="{{ path('app_listUsuarios') }}">
+            <button id="alta" type="button" class="btn btn-secondary btn-lg">VER LISTADO USUARIOS</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

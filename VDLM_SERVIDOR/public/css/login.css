@@ -1,0 +1,52 @@
+.card{
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    background-color: #fdfeff;
+}
+
+#exit{
+    color:white;
+    size:large;
+    margin-right:25px;
+}
+
+#exit:hover{
+    color:#4774b7;
+    size:large;
+    margin-right:25px;
+}
+
+#login{
+    background-color:#4774b7;
+    color:white;
+}
+
+#login:hover{
+    background-color: #1b4077;
+
+}
+
+#icons{
+    color:white;
+}
+
+#icons:hover{
+    color:#232428;
+}
+
+#link{
+    color:white;
+    text-decoration: none;
+}
+
+#link:hover{
+    color:#4774b7;
+    text-decoration: none;
+}
+
+a{
+    text-decoration:none;
+}
+
