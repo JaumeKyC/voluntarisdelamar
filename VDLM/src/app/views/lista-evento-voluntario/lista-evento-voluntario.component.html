@@ -16,14 +16,37 @@
         <div class="col-9">
             <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Nombre Evento</h4>
-                  <p class="card-text">Breve descripción del evento. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                  <p>Inicio: <span id="datoResaltado"> 15-04-2023 08:30 </span></p>
-                  <p>Fecha Fin: <span id="datoResaltado"> 16-04-2023 16:30 </span></p>
-                  <p>Voluntarios: <span id="datoResaltado"> 21 / 40</span></p>
+                  <h4 class="card-title">{{titulo_evento}}</h4>
+                  <p class="card-text">{{descripcion_evento}}</p>
+                  <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA INICIO</span>
+                        <p>{{fecha_inicio}}</p>
+                    </div>
+                    <div class="col">
+                        <span id="datoResaltado">HORA INICIO</span>
+                        <p>{{hora_inicio}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA FIN</span>
+                        <p>{{fecha_fin}}</p>
+                    </div>
+                    <div class="col">
+                        <p><span id="datoResaltado"> HORA FIN: </span> 
+                        <p>{{hora_fin}}</p>
+                    </div>
+                </div>
+                  <p>Voluntarios: <span id="datoResaltado">{{contador_voluntarios}} / {{maximo_voluntarios}}</span></p>
                   <div class="d-grid gap-2 d-md-block">
                     <button [routerLink]="['/detalle_eventos']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
-                    <button [ngStyle]="['disabled', 'estadoBoton']" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #6666ff; color: white" type="button">UNIRSE</button>
+                    <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #6666ff; color: white" type="button">UNIRSE</button>
+
+                    <ng-template #elseBlock>
+                        <button [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: green; color: white" type="button">SE HA UNIDO AL EVENTO</button>
+                    </ng-template>
+
                   </div>
                 </div>
               </div>

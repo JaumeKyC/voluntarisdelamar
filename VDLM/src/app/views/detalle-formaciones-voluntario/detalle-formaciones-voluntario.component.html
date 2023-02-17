@@ -4,14 +4,33 @@
         <p class="mt-4 text-justify">{{descripcion_formacion}}</p>
         <span id="datoResaltado">LUGAR</span>
         <p>{{lugar_formacion}}</p>
-        <span id="datoResaltado">HORA INICIO</span>
-        <p>{{hora_inicio}}</p>
-        <p><span id="datoResaltado"> HORA FIN: </span> 
-        <p>{{hora_fin}} </p>
+        <div class="row">
+            <div class="col">
+                <span id="datoResaltado">FECHA INICIO</span>
+                <p>{{fecha_inicio}}</p>
+            </div>
+            <div class="col">
+                <span id="datoResaltado">HORA INICIO</span>
+                <p>{{hora_inicio}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span id="datoResaltado">FECHA FIN</span>
+                <p>{{fecha_fin}}</p>
+            </div>
+            <div class="col">
+                <p><span id="datoResaltado"> HORA FIN: </span> 
+                <p>{{hora_fin}}</p>
+            </div>
+        </div>
         <h5 id="contadorVoluntarios">VOLUNTARIOS: {{contador_voluntarios}} / {{maximo_voluntarios}} </h5>
         <p class="text-center">
-           <button [ngStyle]="['disabled', 'estadoBoton']" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" type="button">UNIRSE</button>
-        </p>
+            <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" type="button">UNIRSE</button>
+  
+            <ng-template #elseBlock>
+              <button [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" style="background-color: green; color: white" type="button">SE HA UNIDO AL EVENTO</button>
+          </ng-template>
+          </p>
     </div>
 </div>
-  
