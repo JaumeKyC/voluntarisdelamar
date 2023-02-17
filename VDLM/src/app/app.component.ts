@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private router: Router, private http: HttpClient) { }
 
   login(email: string, password: string) {
-    this.http.post<any>('http://localhost:8000/login', { email, password }).subscribe({
+    this.http.post<any>('https://localhost:8000/api/login', { email, password }).subscribe({
       next: (response) => {
         this.router.navigate(['/home_voluntaris']);
       },
