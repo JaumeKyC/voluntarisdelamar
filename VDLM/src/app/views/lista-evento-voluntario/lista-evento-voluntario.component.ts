@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ListaEventoVoluntarioComponent {
 
+  public eventos: number = 5;
+  public estadoBoton: string = "false"
+
+  public unirse() {
+    console.log('TE HAS UNIDO');
+  }
+
 }

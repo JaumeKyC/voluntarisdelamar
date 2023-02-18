@@ -1,5 +1,9 @@
 .card1 {
+<<<<<<< HEAD
     background: rgb(220, 220, 220);
+=======
+    background-image: url('eventos.png');
+>>>>>>> origin/header
     margin: 50px;
     height: 18em;
     display: flex;
@@ -9,7 +13,11 @@
 
 
 .card2 {
+<<<<<<< HEAD
     background: rgb(220, 220, 220);
+=======
+    background-image: url('formacion.png');
+>>>>>>> origin/header
     margin: 50px;
     height: 18em;
     display: flex;
@@ -19,4 +27,8 @@
 
 .card1 a, .card2 a {
     text-decoration:none;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/header

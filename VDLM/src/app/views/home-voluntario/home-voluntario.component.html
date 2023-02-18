@@ -1,4 +1,5 @@
 <div class="container px-4">
+<<<<<<< HEAD
     <h3 class="text-center pt-5">Bienvenido (nombre apellido1 apellido2)</h3>
     <div class="row align-items-center justify-content-center">
         <div class="col-1"></div>
@@ -18,3 +19,20 @@
         </div>
         <div class="col-1"></div>
     </div>
+=======
+    <h3 class="text-center pt-5">Bienvenido {{nombre_usuario}} {{apellido1}} {{apellido2}}</h3>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-md-4">
+            <div [routerLink]="['/listado_eventos']" style="cursor: pointer;" class="card1 justify-content-center rounded-5 shadow">
+                    <h1 class="text-white">EVENTOS</h1>
+            </div> 
+        </div>
+        <div class="col-md-4">
+            <div [routerLink]="['/listado_formaciones']" style="cursor: pointer;" class="card2 justify-content-center rounded-5 shadow">
+                <h1 class="text-white">FORMACIÓN</h1>
+            </div>
+        </div>
+        <div class="col-1"></div>
+</div>
+>>>>>>> origin/header

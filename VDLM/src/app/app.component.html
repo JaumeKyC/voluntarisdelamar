@@ -1,4 +1,10 @@
+<<<<<<< HEAD
   <app-login></app-login>
+=======
+<div *ngIf="loggeado==false; else elseBlock">
+  <app-login></app-login>
+</div>
+>>>>>>> origin/header
 
 <ng-template #elseBlock>
   <app-header></app-header>

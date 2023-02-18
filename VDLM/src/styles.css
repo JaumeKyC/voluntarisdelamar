@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+span#datoResaltado, .card-title{
+    font-weight: bold;
+}
+
+#botonesListado{
+    margin-right: 5%;
+    border-radius: 1em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#botonUnirse{
+    background-color: #6666ff;
+    color: white;
+    margin-right: 5%;
+    font-weight: bold;
+    border-radius: 1em;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.areaEvento{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#contadorVoluntarios{
+    color: #6666ff;
+    font-weight: bold;
+}
