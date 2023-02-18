@@ -36,4 +36,13 @@ export class DetalleFormacionesVoluntarioComponent {
 
   }
 
+  public desunirse() {
+ 
+    this.contador_voluntarios --;
+    this.unido = false;
+    if(this.contador_voluntarios >= this.maximo_voluntarios){
+      this.isDisabled = true;
+    }
+  }
+
 }

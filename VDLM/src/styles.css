@@ -5,18 +5,18 @@ span#datoResaltado, .card-title{
 #botonesListado{
     margin-right: 5%;
     border-radius: 1em;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 #botonUnirse{
-    background-color: #6666ff;
+    background-color: #0066ff;
     color: white;
     margin-right: 5%;
     font-weight: bold;
     border-radius: 1em;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .areaEvento{
@@ -25,6 +25,6 @@ span#datoResaltado, .card-title{
 }
 
 #contadorVoluntarios{
-    color: #6666ff;
+    color: #0066ff;
     font-weight: bold;
 }

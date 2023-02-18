@@ -33,6 +33,14 @@ export class ListaFormacionesVoluntarioComponent {
     if(this.contador_voluntarios >= this.maximo_voluntarios){
       this.isDisabled = true;
     }
-
+  }
+  
+  public desunirse() {
+ 
+    this.contador_voluntarios --;
+    this.unido = false;
+    if(this.contador_voluntarios >= this.maximo_voluntarios){
+      this.isDisabled = true;
+    }
   }
 }

@@ -29,8 +29,9 @@
           <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" type="button">UNIRSE</button>
 
           <ng-template #elseBlock>
-            <button [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mb-5 btn-lg" id="botonUnirse" style="background-color: green; color: white" type="button">SE HA UNIDO AL EVENTO</button>
-            </ng-template>
+            <button class="btn mt-3 btn-lg" id="botonUnirse" style="background-color: green; color: white" type="button">SE HA UNIDO AL EVENTO</button>
+            <button (click)="desunirse()" class="btn mt-3 btn-lg" id="botonUnirse" style="background-color: red; color: white" type="button">DESAPUNTARSE DEL EVENTO</button>
+          </ng-template>
         </p>
     </div>
 </div>
