@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+//IMPORTAMOS EL SERVICIO
+import { ActividadesService } from 'src/app/services/actividades.service';
 
 @Component({
   selector: 'app-lista-evento-voluntario',
@@ -20,10 +22,22 @@ export class ListaEventoVoluntarioComponent {
   public isDisabled: boolean = false;
   public unido: boolean = false;
 
+  //CREAMOS EL CONSTRUCTOR PARA ALBERGAR EL SERVICIO
+  public constructor (public service: ActividadesService){}
+
   ngOnInit(){
+    //LLAMAMOS AL INICIAR LA VISTA A LA FUNCION QUE RECOGE EL LISTADO
+    this.getEventos();
     if(this.contador_voluntarios >= this.maximo_voluntarios){
       this.isDisabled = true;
     }
+  }
+
+
+  public getEventos():void{
+    this.service.getActividades().subscribe(response => {
+      console.log(response)
+    })
   }
 
   public unirse() {
