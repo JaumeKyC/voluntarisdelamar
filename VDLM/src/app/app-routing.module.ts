@@ -10,7 +10,7 @@ import { DetalleFormacionesVoluntarioComponent } from './views/detalle-formacion
 import { PerfilVoluntarioComponent } from './views/perfil-voluntario/perfil-voluntario.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home_voluntaris', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home_voluntaris', component: HomeVoluntarioComponent },
   { path: 'listado_eventos', component: ListaEventoVoluntarioComponent },
   { path: 'detalle_eventos', component: DetalleEventoVoluntarioComponent },

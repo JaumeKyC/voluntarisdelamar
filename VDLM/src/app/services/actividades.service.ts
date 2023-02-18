@@ -13,10 +13,10 @@ export class ActividadesService {
 
   constructor(public http: HttpClient) { }
 
-  public listado_actividades = "http://localhost:8000/api/listActividades";
+  public listado_actividades = "http://localhost:8000/api/listActividades/";
 
-  getActividades(){
-    return this.http.get<Actividades>(this.listado_actividades);
+  public getActividades(id: number):Observable<any>{
+    return this.http.get<Actividades>(this.listado_actividades + `${id}`);
   }
 
 }

@@ -2,22 +2,30 @@ import { Component } from '@angular/core';
 //IMPORTAMOS EL SERVICIO
 import { ActividadesService } from 'src/app/services/actividades.service';
 
+//IMPORTAMOS LAS INTERFACES
+import { Actividades } from 'src/app/models/actividades';
+
 @Component({
   selector: 'app-lista-evento-voluntario',
   templateUrl: './lista-evento-voluntario.component.html',
   styleUrls: ['./lista-evento-voluntario.component.css']
 })
 export class ListaEventoVoluntarioComponent {
-  
-  public fecha_inicio: string = "15-04-2023";
-  public fecha_fin: string = "16-04-2023";
-  public hora_inicio : string = "08:30:00";
-  public hora_fin : string = "---";
+
   public maximo_voluntarios: number = 30;
   public contador_voluntarios: number = 15;
-  public lugar_evento: string = "C/ Miguel Perez 82";
-  public descripcion_evento: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  public titulo_evento: string = "Título Evento";
+
+  //ARRAY QUE RECOGE LOS DATOS SACADOS DE LA API CON EL MODELO DE NUESTRA INTERFAZ
+  // public resp: Actividades = { data: [
+  //   { ID: 0, ES_FORMACION: false, 
+  //   NOMBRE: '', FECHA_INICIO: new Date(), HORA_INICIO: new Date(), UBICACION: '', ENTIDAD_ORGANIZADORA: '', 
+  //   NUM_EMBARCACIONES: 0, NUM_MOTOS: 0, NUM_PATRONES: 0, 
+  //   NUM_TRIPULANTES: 0, NUM_SOCORRISTAS: 0, OBSERVACIONES: '', VOLUNTARIOS: 0, MAX_VOLUNTARIOS: 0, USER_JOINED: false},
+    
+  // ]};
+
+  public resp: Actividades[] = [];
+
 
   public isDisabled: boolean = false;
   public unido: boolean = false;
@@ -27,20 +35,20 @@ export class ListaEventoVoluntarioComponent {
 
   ngOnInit(){
     //LLAMAMOS AL INICIAR LA VISTA A LA FUNCION QUE RECOGE EL LISTADO
-    this.getEventos();
     if(this.contador_voluntarios >= this.maximo_voluntarios){
       this.isDisabled = true;
     }
   }
 
-
-  public getEventos():void{
-    this.service.getActividades().subscribe(response => {
-      console.log(response)
+  public getListadoEventos(){
+    this.service.getActividades(4).subscribe((response: any) => {
+      this.resp.push(response)
+      console.log(this.resp[0].ID);
     })
   }
 
-  public unirse() {
+
+  public unirse(id: number) {
  
     this.contador_voluntarios ++;
     this.unido = true;
@@ -50,7 +58,7 @@ export class ListaEventoVoluntarioComponent {
 
   }
 
-  public desunirse() {
+  public desunirse(id: number) {
  
     this.contador_voluntarios --;
     this.unido = false;
