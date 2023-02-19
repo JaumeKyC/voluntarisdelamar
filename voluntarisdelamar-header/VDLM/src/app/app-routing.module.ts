@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home_voluntaris', component: HomeVoluntarioComponent },
   { path: 'listado_eventos', component: ListaEventoVoluntarioComponent },
-  { path: 'detalle_eventos', component: DetalleEventoVoluntarioComponent },
+  { path: 'detalle_eventos/:id', component: DetalleEventoVoluntarioComponent },
   { path: 'listado_formaciones', component: ListaFormacionesVoluntarioComponent },
-  { path: 'detalle_formaciones', component: DetalleFormacionesVoluntarioComponent },
+  { path: 'detalle_formaciones/:id', component: DetalleFormacionesVoluntarioComponent },
   { path: 'perfil_usuario', component: PerfilVoluntarioComponent },
   { path: 'login', component: LoginComponent },
   ];

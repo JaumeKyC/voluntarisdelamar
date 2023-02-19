@@ -19,4 +19,9 @@ export class ActividadesService {
     return this.http.get<Actividades>(this.listado_actividades + `${id}`);
   }
 
+
+  public getDetalle(id: number){
+    return this.http.get<Actividades>(this.listado_actividades + `${id}`);
+  }
+
 }

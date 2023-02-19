@@ -14,33 +14,37 @@
             </div>
         </div>
         <div class="col-9">
-            <div class="card">
+            <div *ngFor="let item of resp let i = index">
+                <div *ngIf="item.ES_FORMACION == true">
+            <div class="card mb-5">
                 <div class="card-body">
-                  <h4 class="card-title">Nombre Formación</h4>
-                  <p class="card-text">{{descripcion_formacion}}</p>
+                  <h4 class="card-title">{{item.NOMBRE}}</h4>
+                  <p class="card-text">{{item.OBSERVACIONES}}</p>
+                  <span id="datoResaltado">LUGAR</span>
+                  <p>{{item.UBICACION}}</p>
                   <div class="row">
                     <div class="col">
                         <span id="datoResaltado">FECHA INICIO</span>
-                        <p>{{fecha_inicio}}</p>
+                        <p>{{item.FECHA_INICIO}}}</p>
                     </div>
                     <div class="col">
                         <span id="datoResaltado">HORA INICIO</span>
-                        <p>{{hora_inicio}}</p>
+                        <p>{{item.HORA_INICIO}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span id="datoResaltado">FECHA FIN</span>
-                        <p>{{fecha_fin}}</p>
+                        <p>---</p>
                     </div>
                     <div class="col">
                         <p><span id="datoResaltado"> HORA FIN: </span> 
-                        <p>{{hora_fin}}</p>
+                        <p>---</p>
                     </div>
                 </div>
-                  <p>Voluntarios: <span id="datoResaltado">{{contador_voluntarios}} / {{maximo_voluntarios}}</span></p>
+                  <p>Voluntarios: <span id="datoResaltado">{{item.VOLUNTARIOS}} / {{item.MAX_VOLUNTARIOS}}</span></p>
                   <div class="d-grid gap-2 d-md-block">
-                    <button [routerLink]="['/detalle_formaciones/4']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
+                    <button [routerLink]="['/detalle_formaciones/id']" [queryParams]="{ id: item.ID }" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
                     <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #0066ff; color: white" type="button">UNIRSE</button>
 
                     <ng-template #elseBlock>
@@ -50,6 +54,8 @@
                   </div>
                 </div>
               </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>

@@ -1,29 +1,38 @@
 import { Component } from '@angular/core';
-
+import { ActividadesService } from 'src/app/services/actividades.service';
+import { Actividades } from 'src/app/models/actividades';
 @Component({
   selector: 'app-lista-formaciones-voluntario',
   templateUrl: './lista-formaciones-voluntario.component.html',
   styleUrls: ['./lista-formaciones-voluntario.component.css']
 })
 export class ListaFormacionesVoluntarioComponent {
+  
+  public resp: Actividades[] = [];
 
-  public fecha_inicio: string = "15-04-2023";
-  public fecha_fin: string = "16-04-2023";
-  public hora_inicio : string = "08:30:00";
-  public hora_fin : string = "---";
   public maximo_voluntarios: number = 30;
   public contador_voluntarios: number = 15;
-  public lugar_formacion: string = "C/ Miguel Perez 82";
-  public descripcion_formacion: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  public titulo_formacion: string = "Título Formación";
-
   public isDisabled: boolean = false;
   public unido: boolean = false;
+  public id: any = sessionStorage.getItem('id');
+  public constructor (public service: ActividadesService){}
+
 
   ngOnInit(){
+    this.getListadoFormaciones();
     if(this.contador_voluntarios >= this.maximo_voluntarios){
       this.isDisabled = true;
     }
+  }
+
+  public getListadoFormaciones(){
+   
+    this.service.getActividades(this.id).subscribe((response: any[]) => {
+   /*    this.resp.push(response[]) */
+      this.resp = response;
+      /* console.log(this.resp[this.id].ID); */
+      console.log(response);
+    })
   }
 
   public unirse() {

@@ -20,7 +20,12 @@ export class DetalleEventoVoluntarioComponent {
   public isDisabled: boolean = false;
   public unido: boolean = false;
 
+
+
   ngOnInit(){
+
+  
+    /* this.detalleArray[0] =  JSON.parse(this.detalleString); */
     if(this.contador_voluntarios >= this.maximo_voluntarios){
       this.isDisabled = true;
     }

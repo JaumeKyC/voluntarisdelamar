@@ -15,15 +15,6 @@ export class ListaEventoVoluntarioComponent {
   public maximo_voluntarios: number = 30;
   public contador_voluntarios: number = 15;
 
-  //ARRAY QUE RECOGE LOS DATOS SACADOS DE LA API CON EL MODELO DE NUESTRA INTERFAZ
-  // public resp: Actividades = { data: [
-  //   { ID: 0, ES_FORMACION: false, 
-  //   NOMBRE: '', FECHA_INICIO: new Date(), HORA_INICIO: new Date(), UBICACION: '', ENTIDAD_ORGANIZADORA: '', 
-  //   NUM_EMBARCACIONES: 0, NUM_MOTOS: 0, NUM_PATRONES: 0, 
-  //   NUM_TRIPULANTES: 0, NUM_SOCORRISTAS: 0, OBSERVACIONES: '', VOLUNTARIOS: 0, MAX_VOLUNTARIOS: 0, USER_JOINED: false},
-    
-  // ]};
-
   public resp: Actividades[] = [];
 
 
@@ -32,40 +23,60 @@ export class ListaEventoVoluntarioComponent {
   public id: any = sessionStorage.getItem('id');
 
   //CREAMOS EL CONSTRUCTOR PARA ALBERGAR EL SERVICIO
-  public constructor (public service: ActividadesService){}
+  public constructor(public service: ActividadesService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getListadoEventos();
     //LLAMAMOS AL INICIAR LA VISTA A LA FUNCION QUE RECOGE EL LISTADO
-    if(this.contador_voluntarios >= this.maximo_voluntarios){
+    if (this.contador_voluntarios >= this.maximo_voluntarios) {
       this.isDisabled = true;
     }
 
   }
 
-  public getListadoEventos(){
-    this.service.getActividades(this.id).subscribe((response: any) => {
-      this.resp.push(response)
-      console.log(this.resp[0].ID);
+  public detalle(idEvento: number) {
+
+    this.service.getActividades(this.id).subscribe((response: any[]) => {
+        this.resp = response[idEvento];
+        /* console.log(this.resp[0]); */
+      localStorage.setItem('nombre_evento', this.resp[0].NOMBRE);
+      localStorage.setItem('descripcion_evento', this.resp[0].OBSERVACIONES);
+      localStorage.setItem('fecha_inicio_evento', this.resp[0].FECHA_INICIO);
+      localStorage.setItem('hora_inicio_evento', this.resp[0].HORA_INICIO);
+      localStorage.setItem('voluntarios_evento', this.resp[0].VOLUNTARIOS);
+      localStorage.setItem('max_voluntarios_evento', this.resp[0].MAX_VOLUNTARIOS);
+    })
+  }
+
+  public getListadoEventos() {
+
+    this.service.getActividades(this.id).subscribe((response: any[]) => {
+
+      for (let i = 0; i < response.length; i++) {
+        if (response[i].ES_FORMACION != true) {
+          this.resp = response;
+
+        }
+      }
     })
   }
 
 
   public unirse(id: number) {
- 
-    this.contador_voluntarios ++;
+
+    this.contador_voluntarios++;
     this.unido = true;
-    if(this.contador_voluntarios >= this.maximo_voluntarios){
+    if (this.contador_voluntarios >= this.maximo_voluntarios) {
       this.isDisabled = true;
     }
 
   }
 
   public desunirse(id: number) {
- 
-    this.contador_voluntarios --;
+
+    this.contador_voluntarios--;
     this.unido = false;
-    if(this.contador_voluntarios >= this.maximo_voluntarios){
+    if (this.contador_voluntarios >= this.maximo_voluntarios) {
       this.isDisabled = true;
     }
 

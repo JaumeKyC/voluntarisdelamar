@@ -14,7 +14,10 @@
             </div>
         </div>
         <div class="col-9">
-            <div class="card mb-5" *ngFor="let item of resp let i = index">
+            <div *ngFor="let item of resp let i = index">
+            <div *ngIf="item.ES_FORMACION == false">
+            <div class="card mb-5">
+              
                 <div class="card-body">
                   <h4 class="card-title">{{item.NOMBRE}}</h4>
                   <p class="card-text">{{item.OBSERVACIONES}}</p>
@@ -42,7 +45,7 @@
                 </div>
                   <p>Voluntarios: <span id="datoResaltado">{{item.VOLUNTARIOS}} / {{item.MAX_VOLUNTARIOS}}</span></p>
                   <div class="d-grid gap-2 d-md-block">
-                    <button [routerLink]="['/detalle_eventos/item.ID']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
+                    <button [routerLink]="['/detalle_eventos/id']" [queryParams]="{ id: item.ID }" (click)="detalle(item.ID)" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
                     <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse(item.ID)" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #0066ff; color: white" type="button">UNIRSE</button>
 
                     <ng-template #elseBlock>
@@ -53,6 +56,8 @@
                   </div>
                 </div>
               </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>
