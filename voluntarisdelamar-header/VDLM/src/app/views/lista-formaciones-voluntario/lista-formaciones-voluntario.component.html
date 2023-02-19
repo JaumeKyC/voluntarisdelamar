@@ -1,0 +1,55 @@
+<div class="container">
+    <h2 class="text-center mt-3">FORMACIONES</h2>
+    <div class="row mt-4">
+        <div class="col-3">
+            <h5>FILTRAR</h5>
+            <span>Nombre de la formación</span>
+            <br>
+            <input placeholder="Buscar">
+            <br>
+            <div class="mt-2">
+                <span>Fecha</span>
+                <br>
+                <input placeholder="--/--/--">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Nombre Formación</h4>
+                  <p class="card-text">{{descripcion_formacion}}</p>
+                  <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA INICIO</span>
+                        <p>{{fecha_inicio}}</p>
+                    </div>
+                    <div class="col">
+                        <span id="datoResaltado">HORA INICIO</span>
+                        <p>{{hora_inicio}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA FIN</span>
+                        <p>{{fecha_fin}}</p>
+                    </div>
+                    <div class="col">
+                        <p><span id="datoResaltado"> HORA FIN: </span> 
+                        <p>{{hora_fin}}</p>
+                    </div>
+                </div>
+                  <p>Voluntarios: <span id="datoResaltado">{{contador_voluntarios}} / {{maximo_voluntarios}}</span></p>
+                  <div class="d-grid gap-2 d-md-block">
+                    <button [routerLink]="['/detalle_formaciones/4']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
+                    <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #0066ff; color: white" type="button">UNIRSE</button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn mt-1 btn-md" id="botonesListado" style="background-color: green; color: white" type="button">SE HA UNIDO A LA FORMACIÓN</button>
+                        <button (click)="desunirse()" class="btn mt-1 btn-md" id="botonesListado" style="background-color: red; color: white" type="button">DESAPUNTARSE DE LA FORMACIÓN</button>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

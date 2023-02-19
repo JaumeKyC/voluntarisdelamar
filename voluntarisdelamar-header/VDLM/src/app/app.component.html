@@ -1,0 +1,17 @@
+<div *ngIf="loggeado==false; else elseBlock">
+  <app-login (inicioSesion)="sesion($event)"></app-login>
+</div>
+
+<ng-template #elseBlock>
+  <app-header (cerrarSesion)="logOut($event)"></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</ng-template>
+
+  <!-- <app-login></app-login> -->
+<!--   <app-header [ngStyle]="{'display': estadoHeader}"></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+ -->

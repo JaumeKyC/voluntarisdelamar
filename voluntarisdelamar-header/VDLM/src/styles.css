@@ -1,0 +1,30 @@
+span#datoResaltado, .card-title{
+    font-weight: bold;
+}
+
+#botonesListado{
+    margin-right: 5%;
+    border-radius: 1em;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#botonUnirse{
+    background-color: #0066ff;
+    color: white;
+    margin-right: 5%;
+    font-weight: bold;
+    border-radius: 1em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.areaEvento{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#contadorVoluntarios{
+    color: #0066ff;
+    font-weight: bold;
+}

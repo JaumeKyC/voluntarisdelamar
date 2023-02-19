@@ -1,0 +1,58 @@
+<div class="container">
+    <h2 class="text-center mt-3">EVENTOS</h2>
+    <div class="row mt-4">
+        <div class="col-3">
+            <h5>FILTRAR</h5>
+            <span>Nombre del evento</span>
+            <br>
+            <input placeholder="Buscar">
+            <br>
+            <div class="mt-2">
+                <span>Fecha</span>
+                <br>
+                <input placeholder="--/--/--">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card mb-5" *ngFor="let item of resp let i = index">
+                <div class="card-body">
+                  <h4 class="card-title">{{item.NOMBRE}}</h4>
+                  <p class="card-text">{{item.OBSERVACIONES}}</p>
+                  <span id="datoResaltado">LUGAR</span>
+                  <p>{{item.UBICACION}}</p>
+                  <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA INICIO</span>
+                        <p>{{item.FECHA_INICIO}}</p>
+                    </div>
+                    <div class="col">
+                        <span id="datoResaltado">HORA INICIO</span>
+                        <p>{{item.HORA_INICIO}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span id="datoResaltado">FECHA FIN</span>
+                        <p>---</p>
+                    </div>
+                    <div class="col">
+                        <span id="datoResaltado"> HORA FIN</span> 
+                        <p>---</p>
+                    </div>
+                </div>
+                  <p>Voluntarios: <span id="datoResaltado">{{item.VOLUNTARIOS}} / {{item.MAX_VOLUNTARIOS}}</span></p>
+                  <div class="d-grid gap-2 d-md-block">
+                    <button [routerLink]="['/detalle_eventos/item.ID']" class="btn mt-1 btn-md" id="botonesListado" style="background-color: lightblue;" type="button">VER</button>
+                    <button *ngIf="unido==false; else elseBlock" [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}" [disabled]="isDisabled" (click)="unirse(item.ID)" class="btn mt-1 btn-md" id="botonesListado" style="background-color: #0066ff; color: white" type="button">UNIRSE</button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn mt-1 btn-md" id="botonesListado" style="background-color: green; color: white" type="button">SE HA UNIDO AL EVENTO</button>
+                        <button (click)="desunirse(item.ID)" class="btn mt-1 btn-md" id="botonesListado" style="background-color: red; color: white" type="button">DESAPUNTARSE DEL EVENTO</button>
+                    </ng-template>
+
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

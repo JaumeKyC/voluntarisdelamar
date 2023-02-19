@@ -1,0 +1,84 @@
+<div class="container" [ngSwitch]="case">
+
+  <div class="card shadow p-xl-5 mt-5 m-xl-5 p-xxl-5 m-xxl-5">
+    <div class="row">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6">
+        <h1 class="text-center pt-2">Perfil de usuario</h1>
+
+        <form (ngSubmit)="onSubmit()">
+
+          <div class="form-group p-3">
+            <label for="usuario">Nombre Completo</label>
+            <input type="text" [(ngModel)]="nombreCompleto" name="nombre" disabled class="form-control disabled"
+              id="usuario" placeholder="{{nombreCompleto}}">
+          </div>
+          <div class="form-group p-3">
+            <label for="dni">DNI</label>
+            <input type="text" [(ngModel)]="contrasena" name="dni" disabled class="form-control disabled" id="dni"
+              placeholder="{{dni}}">
+          </div>
+          <div class="form-group p-3">
+            <label for="email">Email</label>
+            <input disabled type="email" [(ngModel)]="email" name="email" class="form-control disabled" id="email"
+              aria-describedby="emailHelp" placeholder="{{email}}">
+          </div>
+          <div class="form-group p-3">
+            <label for="movil">Movil</label>
+            <!-- Si el valor de "isDisabled" es verdadero, la clase "disabled" se agrega al elemento HTML -->
+            <input [class.disabled]="isDisabled" [(ngModel)]="movil" name="movil" id="movil" type="text"
+              class="form-control" id="movil" placeholder="{{movil}}">
+          </div>
+
+          <div class="card p-1 p-xxl-5 p-xl-5 m-3">
+            <h6>Dirección</h6>
+            <div class="form-group p-3">
+              <label for="provincia">Provincia</label>
+              <input [class.disabled]="isDisabled" id="provincia" [(ngModel)]="provincia" name="provincia" type="text"
+                class="form-control" id="cp" placeholder="{{provincia}}">
+            </div>
+            <div class="form-group p-3">
+              <label for="cp">Código Postal</label>
+              <input [class.disabled]="isDisabled" id="cp" [(ngModel)]="codigoPostal" name="cp" type="text"
+                class="form-control" placeholder="{{codigoPostal}}">
+            </div>
+
+            <div class="form-group p-3">
+              <label for="poblacion">Población</label>
+              <input [class.disabled]="isDisabled" id="poblacion" [(ngModel)]="poblacion" name="poblacion" type="text"
+                class="form-control" placeholder="{{poblacion}}">
+            </div>
+            <label>Escribe tu dirección (Calle/Avda./Plz.)</label>
+            <textarea [class.disabled]="isDisabled" [(ngModel)]="direccion" name="direccion" id="direccion"
+              class="form-control" rows="3">{{direccion}}</textarea>
+
+          </div>
+    <!--       <div class="form-group p-3">
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input [class.disabled]="isDisabled" [(ngModel)]="fechaNacimiento" name="fecha" type="date"
+              class="form-control" id="fechaNacimiento" placeholder="{{fechaNacimiento}}">
+          </div> -->
+
+          <label>Titulaciones</label>
+          <textarea disabled [(ngModel)]="titulaciones" name="titulaciones" class="form-control disabled"
+            rows="3">{{titulaciones}}</textarea>
+          <div *ngSwitchCase=1>
+            <div class="form-group p-3">
+              <label for="contrasena">Contraseña</label>
+              <input [(ngModel)]="contrasena" type="text" name="contrasena" class="form-control" id="contrasena"
+                placeholder="{{contrasena}}">
+            </div>
+            <div class="d-grid">
+              <input class="btn btn-light" type="submit" value="Confirmar" />
+              <input (click)="onClick()" class="mt-2 btn btn-light" type="submit" value="Cancelar" />
+            </div>
+          </div>
+          <div *ngSwitchCase=0>
+            <div class="d-grid">
+              <input (click)="onClick()" class="mt-2 btn btn-light" type="submit" value="Editar" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-xl-3"></div>
+    </div>
