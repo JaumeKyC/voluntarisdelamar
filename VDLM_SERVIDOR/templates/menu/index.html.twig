@@ -6,7 +6,7 @@
     <h3 class="text-center pt-5" style="color:#232428;">Hola {{nombre.getNombre()}} {{nombre.getApellidos()}}</h3>
     <div class="row align-items-center justify-content-center">
         <div class="col-1"></div>
-        <div class="col-md-4">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <div id="card1" class="card justify-content-center rounded-5 shadow">
                 <a href="{{ path('app_listActividad', {type: 'evento'}) }}">
                     <h1 class="text-white">EVENTOS</h1>
@@ -16,7 +16,7 @@
                 <h4><a id="nuevo" href="{{ path('app_newActividad', {type: 'evento'}) }}"><i class="fa-solid fa-plus fa-xl"></i> EVENTOS</a></h4>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <div id="card2" class="card justify-content-center rounded-5 shadow">
                 <a href="{{ path('app_listActividad', {type: 'formacion'}) }}">
                     <h1 class="text-white">FORMACIÓN</h1>

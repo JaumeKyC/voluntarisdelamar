@@ -90,6 +90,34 @@ class ApiController extends AbstractController
         return new JsonResponse($serializedData, 200, [], true);
     }
 
+    #[Route('/showActividad/{id}/{userId}', name: 'api_showActividad', methods: ['GET'])]
+    public function apiShowActividad(?int $id, ?int $userId,EntityManagerInterface $entityManager): JsonResponse
+    {
+        $user = $entityManager->getRepository(User::class)->find($userId);
+        $actividad = $entityManager->getRepository(Actividades::class)->find($id);
+        $userJoined = $actividad->getUserId()->contains($user);
+        $data = [
+            'ID' => $actividad->getId(),
+            'ES_FORMACION' => $actividad->getEsFormacion(),
+            'NOMBRE' => $actividad->getNombre(),
+            'FECHA_INICIO' => $actividad->getFechaInicio(),
+            'HORA_INICIO' => $actividad->getHoraInicio(),
+            'UBICACION' => $actividad->getUbicacion(),
+            'ENTIDAD_ORGANIZADORA' => $actividad->getEntidadOrganizadora(),
+            'NUM_EMBARCACIONES' => $actividad->getNumEmbarcaciones(),
+            'NUM_MOTOS' => $actividad->getNumMotos(),
+            'NUM_PATRONES' => $actividad->getNumPatrones(),
+            'NUM_TRIPULANTES' => $actividad->getNumTripulantes(),
+            'NUM_SOCORRISTAS' => $actividad->getNumSocorristas(),
+            'OBSERVACIONES' => $actividad->getObservaciones(),
+            'VOLUNTARIOS' => $actividad->getVoluntarios(),
+            'MAX_VOLUNTARIOS' => $actividad->getMaxVoluntarios(),
+            'USER_JOINED' => $userJoined,
+        ];
+
+        return $this->json($data);
+    }
+
     #[Route('/updateActividades/{id}', name: 'api_updateActividades', methods: ['POST'])]
     public function updateActividades(?int $id, EntityManagerInterface $entityManager, Request $request,  SerializerInterface $serializer): JsonResponse
     {
