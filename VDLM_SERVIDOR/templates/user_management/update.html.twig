@@ -1,0 +1,212 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <h3 class="text-center mt-4 mb-4">Datos {{voluntario.getNombre()}} {{voluntario.getApellidos()}}</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <div class="form-outline">
+                        <input type="text" id="Nombre" name="NOMBRE" class="form-control" placeholder="Nombre" value={{voluntario.getNombre()}} />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-outline">
+                        <input type="text" id="Apellidos" name="APELLIDOS" class="form-control" placeholder="Apellidos" value="{{voluntario.getApellidos()}}" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <div class="form-outline mb-2">
+                        <input type="email" id="Email" name="EMAIL" class="form-control" placeholder="Email" value={{voluntario.getEmail()}} />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-outline mb-2">
+                        <input type="password" id="Password" name="PASSWORD" class="form-control" placeholder="Contraseña" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <div class="form-outline mt-4">
+                        <input type="text" id="Dni" name="DNI" class="form-control" placeholder="DNI" minlength="9" maxlength="9" value={{voluntario.getDni()}} />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-outline mt-4">
+                        <input type="text" id="Telefono" name="TELEFONO" class="form-control" placeholder="Teléfono" minlength="9" maxlength="9" value={{voluntario.getTelefono()}} />
+                    </div>
+                </div>
+                <div class="col-2 mb-2">
+                    <div class="form-outline">
+                        <label for="FechaNacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="FechaNacimiento" name="FECHA_NACIMIENTO" class="form-control" value={{fechaNacimiento}} />
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline mb-4">
+                        <input type="text" id="Direccion" name="DIRECCION" class="form-control" placeholder="Dirección" value="{{direccion}}" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <div class="form-outline">
+                        <input type="text" id="Poblacion" name="POBLACION" class="form-control" placeholder="Población" value="{{poblacion}}" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-outline">
+                        <select required name="PROVINCIA" class="form-control">
+                            <option value="{{provincia}}" selected>{{provincia}}</option>
+                            <option value="">Provincia</option>
+                            <option value="Álava/Araba">Álava/Araba</option>
+                            <option value="Albacete">Albacete</option>
+                            <option value="Alicante">Alicante</option>
+                            <option value="Almería">Almería</option>
+                            <option value="Asturias">Asturias</option>
+                            <option value="Ávila">Ávila</option>
+                            <option value="Badajoz">Badajoz</option>
+                            <option value="Baleares">Baleares</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Burgos">Burgos</option>
+                            <option value="Cáceres">Cáceres</option>
+                            <option value="Cádiz">Cádiz</option>
+                            <option value="Cantabria">Cantabria</option>
+                            <option value="Castellón">Castellón</option>
+                            <option value="Ceuta">Ceuta</option>
+                            <option value="Ciudad Real">Ciudad Real</option>
+                            <option value="Córdoba">Córdoba</option>
+                            <option value="Cuenca">Cuenca</option>
+                            <option value="Gerona/Girona">Gerona/Girona</option>
+                            <option value="Granada">Granada</option>
+                            <option value="Guadalajara">Guadalajara</option>
+                            <option value="Guipúzcoa/Gipuzkoa">Guipúzcoa/Gipuzkoa</option>
+                            <option value="Huelva">Huelva</option>
+                            <option value="Huesca">Huesca</option>
+                            <option value="Jaén">Jaén</option>
+                            <option value="La Coruña/A Coruña">La Coruña/A Coruña</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Las Palmas">Las Palmas</option>
+                            <option value="León">León</option>
+                            <option value="Lérida/Lleida">Lérida/Lleida</option>
+                            <option value="Lugo">Lugo</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Málaga">Málaga</option>
+                            <option value="Melilla">Melilla</option>
+                            <option value="Murcia">Murcia</option>
+                            <option value="Navarra">Navarra</option>
+                            <option value="Orense/Ourense">Orense/Ourense</option>
+                            <option value="Palencia">Palencia</option>
+                            <option value="Pontevedra">Pontevedra</option>
+                            <option value="Salamanca">Salamanca</option>
+                            <option value="Segovia">Segovia</option>
+                            <option value="Sevilla">Sevilla</option>
+                            <option value="Soria">Soria</option>
+                            <option value="Tarragona">Tarragona</option>
+                            <option value="Tenerife">Tenerife</option>
+                            <option value="Teruel">Teruel</option>
+                            <option value="Toledo">Toledo</option>
+                            <option value="Valencia">Valencia</option>
+                            <option value="Valladolid">Valladolid</option>
+                            <option value="Vizcaya/Bizkaia">Vizcaya/Bizkaia</option>
+                            <option value="Zamora">Zamora</option>
+                            <option value="Zaragoza">Zaragoza</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-outline">
+                        <input type="text" id="CodPostal" name="COD_POSTAL" class="form-control" placeholder="Código Postal" value="{{codPostal}}" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-2 mt-4">
+                    <div class="form-outline">
+                        <input type="text" id="Camiseta" name="CAMISETA" class="form-control" placeholder="Camiseta" value="{{camiseta}}" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-outline">
+                    <label for="FichaSepa">Ficha SEPA</label>
+                        <input type="file" id="FichaSepa" name="FICHA_SEPA" class="form-control" placeholder="Ficha SEPA"/>
+                    </div>
+                </div>
+                <div class="col-2 mt-4">
+                    <a href="'/assets/pdf'.{{voluntario.getFichaSEPA()}} " download >Descargar Ficha SEPA</a><a>
+
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <div class="form-outline">
+                        <input type="text" id="Poblacion" name="VOLUN_LA_CAIXA" class="form-control" placeholder="Voluntario La Caixa" value="{{volunCaixa}}" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-outline">
+                        <input type="text" id="Iban" name="IBAN" class="form-control" placeholder="IBAN" minlength="40" maxlength="40" value="{{iban}}"/>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline">
+                        <textarea class="form-control" id="Titulaciones "name="TITULACIONES" rows="4" placeholder="Titulaciones">{{titulaciones}}</textarea>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+            <div class="col-2"></div>
+                <div class="col-3">
+                    <div class="form-outline">
+                        <label for="FechaAlta">Fecha de Alta</label>
+                        <input type="date" id="FechaAlta" name="FECHA_ALTA" class="form-control" value={{fechaAlta}} />
+                    </div>
+                </div>
+                <div class="col-2 mt-4 d-flex">
+                    <label id="admin" class="form-check-label" for="flexSwitchCheckDefault">Es Administrador</label>
+                    <div id="switch" class="form-check form-switch checkbox-lg">
+                        <input class="form-check-input" name="ADMIN" type="checkbox" role="switch" id="flexSwitchCheckDefault" {{switch}}>
+                    </div>
+                </div>
+                <div class="col-3 mt-4">
+                    <button id="submit" type="submit" class="text-center btn btn-primary btn-block">Actualizar </button>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            
+        </form>
+    </div>
+</section>
+{% endblock %}

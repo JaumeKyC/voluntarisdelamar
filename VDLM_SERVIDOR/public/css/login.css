@@ -1,4 +1,8 @@
-.card{
+#cardList{
+    padding: .5em .5em .5em !important;
+}
+
+#cardLogin{
     padding: 1.5em .5em .5em;
     border-radius: 2em;
     text-align: center;

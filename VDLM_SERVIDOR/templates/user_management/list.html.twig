@@ -13,10 +13,10 @@
             {% for task in data %}
                 {% if loop.index >= lowerLimit and loop.index <= upperLimit %}
                 <tr class="d-flex">
-                    <td class="offset-1 col-4"><a id="nuevo" href='#'>{{task.getNombre()}} {{task.getApellidos()}}</a></td>
-                    <td class="col-4">{{task.getTelefono()}}</td>
-                    <td class="col-1 text-center"><a id="nuevo" href='#'><i class="fa-solid fa-pen-to-square fa-xl"></i></a></td>
-                    <td class="col-1 text-center"><a id="nuevo" href='#'><i class="fa-solid fa-trash-can fa-xl"></i></a></td>
+                    <td class="offset-1 col-4"><a id="nuevo" href="{{ path('app_detailUsuarios', {id: task.getId()}) }}">{{task.getNombre()}} {{task.getApellidos()}}</a></td>
+                    <td class="col-4">{{ task.getTelefono() }}</td>
+                    <td class="col-1 text-center"><a id="nuevo" href="{{ path('app_updateUsuarios', {id: task.getId()}) }}"><i class="fa-solid fa-pen-to-square fa-xl"></i></a></td>
+                    <td class="col-1 text-center"><a id="nuevo" href="{{ path('app_deleteUsuario', {id: task.getId()}) }}"><i class="fa-solid fa-trash-can fa-xl"></i></a></td>
                 </tr>
                 {% endif %}
 			{% endfor %}

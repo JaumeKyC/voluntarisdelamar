@@ -28,11 +28,12 @@ class AppFixtures extends Fixture
 
         $admin = new User();
         $admin->setEmail('admin@gmail.com');
-        $hashedPass = $this->userPasswordHasher->hashPassword($admin, 'admin');
+        $hashedPass = $this->userPasswordHasher->hashPassword($admin, '1234');
         $admin->setPassword($hashedPass);
         $admin->setNombre('Natalia');
         $admin->setApellidos('Fernández Cañadas');
         $admin->setDni('12345678K');
+        $admin->setTelefono('123456789');
         $admin->setFechaNacimiento(DateTime::createFromFormat('d/m/Y', '15/02/1995'));
         $admin->setDireccion('Calle Falsa 123');
         $admin->setPoblacion('Valencia');

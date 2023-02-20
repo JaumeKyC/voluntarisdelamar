@@ -1,0 +1,108 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+    <h3 class="text-center mt-4 mb-4">{{nombreTipo}}</h3>
+    {% set elementsPerPage = 20 %} 
+	{% set lowerLimit = (page -1) * elementsPerPage + 1 %} 
+	{% set upperLimit = page * elementsPerPage %}
+        <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="col-3">Nombre</th>
+                            <th class="col-3">Fecha</th>
+                            <th class="col-2">Voluntarios</th>
+                            <th class="col-2"></th>
+                            <th class="col-1"></th>
+                            <th class="col-1"></th>
+                        </tr>
+                    </thead>
+                        {% for task in data %}
+                            {% if loop.index >= lowerLimit and loop.index <= upperLimit %}
+
+                            <tr>
+                                <td><a id="nuevo" href="{{ path('app_detailActividad', {'type': nombreTipo, 'id': task.getId()}) }}">{{ task.getNombre() }}</a></td>
+                                <td>{{ task.getFechaInicio()|date('Y-m-d') }} {{ task.getHoraInicio()|date('H:i') }}</td>
+                                <td>{{ task.getVoluntarios() }} / {{ task.getMaxVoluntarios() }}</td>
+                                {% if disabled[loop.index - 1] and participa[loop.index - 1] %}
+                                <td class="text-start">
+                                    <a href="{{ path('app_detailActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividad" class="btn btn-primary btn-block">VER</button></a>
+                                    <a href="{{ path('app_abandonarActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividadDont" class="btn btn-primary btn-block">ABANDONAR</button></a>
+                                </td>
+                                {% elseif disabled[loop.index - 1] and participa[loop.index - 1] == false %}
+                                <td class="text-start">
+                                    <a href="{{ path('app_detailActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividad" class="btn btn-primary btn-block">VER</button></a>
+                                    <button id="buttonListActividadCompleto" class="btn btn-primary btn-block" disabled>COMPLETO</button>
+                                </td>
+                                {% elseif disabled[loop.index - 1] == false and participa[loop.index - 1] %}
+                                <td class="text-start">
+                                    <a href="{{ path('app_detailActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividad" class="btn btn-primary btn-block">VER</button></a>
+                                    <a href="{{ path('app_abandonarActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividadDont" class="btn btn-primary btn-block">ABANDONAR</button></a>
+                                </td>
+                                {% elseif disabled[loop.index - 1] == false and participa[loop.index - 1] == false %}
+                                <td class="text-start">
+                                    <a href="{{ path('app_detailActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividad" class="btn btn-primary btn-block">VER</button></a>
+                                    <a href="{{ path('app_unirseActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><button id="buttonListActividad" class="btn btn-primary btn-block">PARTICIPAR</button></a>
+                                </td>
+                                {% endif %}
+                                <td class="text-end">
+                                    <a id="nuevo" href="{{ path('app_updateActividad', {id: task.getId()}) }}"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
+                                </td>
+                                <td class="text-end">
+                                    <a id="nuevo" href="{{ path('app_deleteActividad', {'type': nombreTipo, 'id': task.getId()}) }}"><i class="fa-solid fa-trash-can fa-xl"></i></a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+        </table>
+        {% set totalPages = (((data|length)/elementsPerPage)|round(0, 'ceil')) %}
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2 text-center">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listActividad', {type: 'evento'}, {page: 1}) }}">&lt;&lt; </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listActividad', {type: 'evento'}, {page: page - 1}) }}">&lt;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <span class="page-link disabled">&lt;&lt;</span>
+                    </li>
+                    <li class="page-item">
+                        <span class="page-link disabled">&lt;</span>
+                    </li>
+                {% endif %}
+                {% for pageButton in 1..totalPages %}
+                    {% if pageButton == page%}
+                        <li class="page-item"><span class="page-link bg-light">{{ pageButton }}</span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path('app_listActividad', {type: 'evento'}, {page: pageButton}) }}">{{ pageButton }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page < totalPages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listActividad', {type: 'evento'}, {page: page + 1}) }}">&gt;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('app_listActividad', {type: 'evento'}, {page: totalPages}) }}">&gt;&gt;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <span class="page-link disabled" >&gt;</span>
+                    </li>
+                    <li class="page-item">
+                        <span class="page-link disabled">&gt;&gt;</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+{% endblock %}

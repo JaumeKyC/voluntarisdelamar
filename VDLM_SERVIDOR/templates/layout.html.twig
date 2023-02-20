@@ -13,7 +13,7 @@
             <h5 style="color:#232428;">Panel de Administradores</h5>
         </div>
             <div class="col-3 text-end mt-2">
-                <a href="{{ path('app_menu') }}"><h5 id="icons">{{nombre.getNombre()}} {{nombre.getApellidos()}}</h5></a>
+                <a href="{{ path('app_detailUsuarios', {id: nombre.getId()}) }}"><h5 id="icons">{{nombre.getNombre()}} {{nombre.getApellidos()}}</h5></a>
             </div>
             <div class="col-1 text-center">
                 <a href="{{ path('app_menu') }}"><i id="icons" class="fa-solid fa-house fa-2xl"></i></a>

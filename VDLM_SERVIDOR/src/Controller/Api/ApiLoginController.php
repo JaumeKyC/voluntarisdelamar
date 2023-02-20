@@ -21,9 +21,11 @@ class ApiLoginController extends AbstractController
         }
         $user = $this->getUser();
         $data = [
+                'ID' => $user->getId(),
                 'NOMBRE' => $user->getNombre(),
                 'APELLIDOS' => $user->getApellidos(),
             ];
+        
         return $this->json($data, Response::HTTP_OK);
 
     }

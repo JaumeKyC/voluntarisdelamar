@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="bg-image" style="background-image: url('/css/BACKGROUND.jpg'); height: 100vh; background-size: cover; background-repeat: no-repeat;">
+    <div class="container">
+        <h3 class="text-center pt-4 mb-4">{{voluntario.getNombre()}} {{voluntario.getApellidos()}} <a id="nuevo" href="{{ path('app_updateUsuarios', {id: voluntario.getId()}) }}"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+        <div class="row d-flex">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="card text-center">
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">EMAIL:&nbsp;</h5>
+                        <h5> {{voluntario.getEmail()}}&nbsp;&nbsp;&nbsp; </h5>
+                        <h5 style="color:#4774b7;">CONTRASEÑA:&nbsp;</h5>
+                        <h5> - </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">TELÉFONO:&nbsp;</h5>
+                        <h5> {{telefono}} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">DNI:&nbsp;</h5>
+                        <h5> {{voluntario.getDni()}}&nbsp;&nbsp;&nbsp; </h5>
+                        <h5 style="color:#4774b7;">FECHA DE NACIMIENTO:&nbsp;</h5>
+                        <h5> {{fechaNacimiento}} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">IBAN:&nbsp;</h5>
+                        <h5> {{voluntario.getIban()}} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">DIRECCIÓN:&nbsp;</h5>
+                        <h5> {{voluntario.getDireccion()}}&nbsp;&nbsp;&nbsp; </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">POBLACIÓN:&nbsp;</h5>
+                        <h5> {{voluntario.getPoblacion()}}&nbsp;&nbsp;&nbsp; </h5>
+                        <h5 style="color:#4774b7;">PROVINCIA:&nbsp;</h5>
+                        <h5> {{voluntario.getProvincia()}}&nbsp;&nbsp;&nbsp; </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">CÓDIGO POSTAL:&nbsp;</h5>
+                        <h5> {{voluntario.getCodPostal()}}&nbsp;&nbsp;&nbsp; </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">CAMISETA:&nbsp;</h5>
+                        <h5> {{voluntario.getCamiseta()}} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">VOLUNTARI LA CAIXA:&nbsp;</h5>
+                        <h5> {{voluntario.getVolunLaCaixa()}} </h5>
+                    </div>
+                    <ul class="list-group mb-2">
+                        <li class="list-group-item list-group-item-dark"><h5 class="mt-2" style="color:#4774b7;">TITULACIONES</h5></li>
+                        {% for task in titulaciones %}
+                            <li class="list-group-item">{{task}}</li>
+                        {% endfor %}
+                    </ul>
+                    <div id="cardDetail" class="card-body  d-flex">
+                        <h5 style="color:#4774b7;">FECHA DE ALTA:&nbsp;</h5>
+                        <h5> {{fechaAlta}}&nbsp;&nbsp;&nbsp;</h5>
+                        <h5 style="color:#4774b7;">ROL:&nbsp;</h5>
+                        <h5> {{role}}&nbsp;&nbsp;&nbsp;</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

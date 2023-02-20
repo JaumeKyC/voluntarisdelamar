@@ -40,7 +40,17 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/api/listProfile, roles: ROLE_USER }
+        #- { path: ^/adminMenu, roles: ROLE_ADMIN }
+        #- { path: ^/altaUsuarios, roles: ROLE_ADMIN }
+        #- { path: ^/listUsuarios, roles: ROLE_ADMIN }
+        #- { path: ^/detailUsuarios, roles: ROLE_ADMIN }
+        #- { path: ^/updateUsuarios, roles: ROLE_ADMIN }
+        #- { path: ^/newActividad, roles: ROLE_ADMIN }
+        #- { path: ^/listActividad, roles: ROLE_ADMIN }
+        #- { path: ^/api/listProfile, roles: ROLE_USER }
+        #- { path: ^/api/updateProfile, roles: ROLE_USER }
+        #- { path: ^/api/listActividades, roles: ROLE_USER }
+        #- { path: ^/api/updateActividades, roles: ROLE_USER }
 
 when@test:
     security:

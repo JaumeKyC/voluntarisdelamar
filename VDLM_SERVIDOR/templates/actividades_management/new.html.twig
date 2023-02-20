@@ -1,0 +1,121 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<section>
+    <div class="container">
+    {% if nombreTipo == 'EVENTO' %}
+        <h3 class="text-center mt-4 mb-4">CREAR NUEVO {{nombreTipo}}</h3>
+    {% else %}
+     <h3 class="text-center mt-4 mb-4">CREAR NUEVA {{nombreTipo}}</h3>
+    {% endif %}
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline">
+                        <input type="text" id="Nombre" name="NOMBRE" class="form-control" placeholder="Nombre de la actividad" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4 mb-2">
+                    <label for="FechaInicio">Fecha de inicio</label>
+                    <input type="date" id="FechaInicio" name="FECHA_INICIO" class="form-control" />
+                </div>
+                <div class="col-4 mb-2">
+                    <label for="HoraInicio">Hora de inicio</label>
+                    <input type="time" id="HoraInicio" name="HORA_INICIO" class="form-control" />
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-8 mt-4">
+                    <div class="form-outline">
+                        <input type="text" id="ubicacion" name="UBICACION" class="form-control" placeholder="Ubicación" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-8 mt-4">
+                    <div class="form-outline">
+                        <input type="text" id="entidadOrganizadora" name="ENTIDAD_ORGANIZADORA" class="form-control" placeholder="Entidad organizadora" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-4">
+                    <div class="form-outline">
+                        <input type="number" id="numEmbarcaciones" name="NUM_EMBARCACIONES" class="form-control" placeholder="Nº Embarcaciones" />
+                    </div>
+                </div>
+                <div class="col-4 mt-4">
+                    <div class="form-outline">
+                        <input type="number" id="numMotos" name="NUM_MOTOS" class="form-control" placeholder="Nº Motos" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-4">
+                    <div class="form-outline">
+                        <input type="number" id="numPatrones" name="NUM_PATRONES" class="form-control" placeholder="Nº Patrones" />
+                    </div>
+                </div>
+                <div class="col-4 mt-4">
+                    <div class="form-outline">
+                        <input type="number" id="numTripulantes" name="NUM_TRIPULANTES" class="form-control" placeholder="Nº Tripulantes" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-4 mb-4">
+                    <div class="form-outline">
+                        <input type="number" id="numSocorristas" name="NUM_SOCORRISTAS" class="form-control" placeholder="Nº Socorristas" />
+                    </div>
+                </div>
+                <div class="col-4 mt-4 mb-4">
+                    <div class="form-outline">
+                        <input type="number" id="maxVoluntarios" name="MAX_VOLUNTARIOS" class="form-control" placeholder="Nº máximo de Voluntarios" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline">
+                        <textarea class="form-control" id="Observaciones "name="OBSERVACIONES" rows="4" placeholder="Descripción de la actividad"></textarea>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+            <div class="col-2"></div>
+                <div class="col-8 mt-4 text-center">
+                    <button id="submit" type="submit" class="text-center btn btn-primary btn-block">Crear Actividad</button>
+                </div>
+            <div class="col-2"></div>
+            </div>
+            
+        </form>
+    </div>
+</section>
+{% endblock %}

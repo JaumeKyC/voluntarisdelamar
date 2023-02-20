@@ -6,10 +6,12 @@ use App\Repository\UserRepository;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\BlobType;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: "USER")]
@@ -17,7 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column (name: 'USER_ID')]
+    #[ORM\Column(name: 'id')]
     private ?int $id = null;
 
     #[ORM\Column(name: 'EMAIL', length: 180, unique: true)]
@@ -38,7 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(name: 'TELEFONO', type: Types::STRING, length: 9)]
     private ?string $telefono = null;
 
-    #[ORM\Column(name: 'DIRECCION', type: Types::STRING, length: 255, nullable: true)] 
+    #[ORM\Column(name: 'DIRECCION', type: Types::STRING, length: 255, nullable: true)]
     private ?string $direccion = null;
 
     #[ORM\Column(name: 'POBLACION', type: Types::STRING, length: 255, nullable: true)]
@@ -56,7 +58,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(name: 'CAMISETA', type: Types::STRING, length: 255, nullable: true)]
     private ?string $camiseta = null;
 
-    #[ORM\Column(name: 'FICHA_SEPA', type: Types::BLOB, nullable: true)]
+    #[ORM\Column(name: 'FICHA_SEPA', type: Types::STRING, nullable: true)]
     private $fichaSepa = null;
 
     #[ORM\Column(name: 'VOLUN_LA_CAIXA', type: Types::STRING, length: 255, nullable: true)]
@@ -137,7 +139,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    
+
     public function getCodPostal(): ?string
     {
         return $this->codPostal;
@@ -266,10 +268,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    
+
     /**
      * Get the value of nombre
-     */ 
+     */
     public function getNombre()
     {
         return $this->nombre;
@@ -279,7 +281,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of nombre
      *
      * @return  self
-     */ 
+     */
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -289,7 +291,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of apellidos
-     */ 
+     */
     public function getApellidos()
     {
         return $this->apellidos;
@@ -299,7 +301,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of apellidos
      *
      * @return  self
-     */ 
+     */
     public function setApellidos($apellidos)
     {
         $this->apellidos = $apellidos;
@@ -309,7 +311,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of dni
-     */ 
+     */
     public function getDni()
     {
         return $this->dni;
@@ -319,7 +321,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of dni
      *
      * @return  self
-     */ 
+     */
     public function setDni($dni)
     {
         $this->dni = $dni;
@@ -329,7 +331,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of titulaciones
-     */ 
+     */
     public function getTitulaciones()
     {
         return $this->titulaciones;
@@ -339,7 +341,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of titulaciones
      *
      * @return  self
-     */ 
+     */
     public function setTitulaciones($titulaciones)
     {
         $this->titulaciones = $titulaciones;
@@ -349,7 +351,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get the value of telefono
-     */ 
+     */
     public function getTelefono()
     {
         return $this->telefono;
@@ -359,7 +361,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of telefono
      *
      * @return  self
-     */ 
+     */
     public function setTelefono($telefono)
     {
         $this->telefono = $telefono;
@@ -384,7 +386,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->actividades;
     }
 
-    public function addActividade(Actividades $actividades): self
+    public function addActividades(Actividades $actividades): self
     {
         if (!$this->actividades->contains($actividades)) {
             $this->actividades->add($actividades);
@@ -394,7 +396,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeActividade(Actividades $actividades): self
+    public function removeActividades(Actividades $actividades): self
     {
         if ($this->actividades->removeElement($actividades)) {
             $actividades->removeUserId($this);

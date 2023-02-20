@@ -1,0 +1,128 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <h3 class="text-center mt-4 mb-4">DATOS {{data.getNombre()|upper}}</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="row mb-4">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline">
+                        <input type="text" id="Nombre" name="NOMBRE" class="form-control" placeholder="Nombre de la actividad" value="{{data.getNombre()}}"/>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4 mb-2">
+                    <label for="FechaInicio">Fecha de inicio</label>
+                    <input type="date" id="FechaInicio" name="FECHA_INICIO" class="form-control" value={{date}} />
+                </div>
+                <div class="col-4 mb-2">
+                    <label for="HoraInicio">Hora de inicio</label>
+                    <input type="time" id="HoraInicio" name="HORA_INICIO" class="form-control" value={{hora}} />
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-8 mt-4">
+                    <div class="form-outline">
+                        <input type="text" id="ubicacion" name="UBICACION" class="form-control" placeholder="Ubicación" value="{{data.getUbicacion()}}"/>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-8 mt-3">
+                    <div class="form-outline">
+                    <label for="FichaSepa">Entidad Organizadora</label>
+                        <input type="text" id="entidadOrganizadora" name="ENTIDAD_ORGANIZADORA" class="form-control" placeholder="Entidad organizadora" value="{{data.getEntidadOrganizadora()}}" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-3">
+                    <div class="form-outline">
+                    <label for="numEmbarcaciones">Nº Embarcaciones</label>
+                        <input type="number" id="numEmbarcaciones" name="NUM_EMBARCACIONES" class="form-control" placeholder="Nº Embarcaciones" value="{{data.getNumEmbarcaciones()}}" />
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="form-outline">
+                        <label for="numMotos">Nº Motos</label>
+                        <input type="number" id="numMotos" name="NUM_MOTOS" class="form-control" placeholder="Nº Motos" value="{{data.getNumMotos()}}"/>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-3">
+                    <div class="form-outline">
+                        <label for="numPatrones">Nº Patrones</label>
+                        <input type="number" id="numPatrones" name="NUM_PATRONES" class="form-control" placeholder="Nº Patrones" value="{{data.getNumPatrones()}}"/>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="form-outline">
+                        <label for="numTripulantes">Nº Tripulantes</label>
+                        <input type="number" id="numTripulantes" name="NUM_TRIPULANTES" class="form-control" placeholder="Nº Tripulantes" value="{{data.getNumTripulantes()}}" />
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-2"></div>
+                <div class="col-4 mt-3 mb-4">
+                    <div class="form-outline">
+                        <label for="numSocorristas">Nº Socorristas</label>
+                        <input type="number" id="numSocorristas" name="NUM_SOCORRISTAS" class="form-control" placeholder="Nº Socorristas" value="{{data.getNumSocorristas()}}"/>
+                    </div>
+                </div>
+                <div class="col-4 mt-3 mb-4">
+                    <div class="form-outline">
+                        <label for="maxVoluntarios">Nº máximo de Voluntarios</label>
+                        <input type="number" id="maxVoluntarios" name="MAX_VOLUNTARIOS" class="form-control" placeholder="Nº máximo de Voluntarios" value="{{data.getMaxVoluntarios()}}"/>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="form-outline">
+                        <textarea class="form-control" id="Observaciones "name="OBSERVACIONES" rows="4" placeholder="Descripción de la actividad">{{data.getObservaciones()}}</textarea>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row mb-4">
+            <div class="col-2"></div>
+                <div class="col-8 mt-4 text-center">
+                    <button id="submit" type="submit" class="text-center btn btn-primary btn-block">Actualizar</button>
+                </div>
+            <div class="col-2"></div>
+            </div>
+            
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+
+
+    

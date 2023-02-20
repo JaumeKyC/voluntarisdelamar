@@ -14,7 +14,7 @@ class Actividades
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name: 'ACTIVIDAD_ID', type: Types::INTEGER)]
+    #[ORM\Column(name: 'id', type: Types::INTEGER)]
     private ?int $id = null;
 
     #[ORM\Column(name: 'ES_FORMACION', type: Types::BOOLEAN)]
@@ -72,7 +72,7 @@ class Actividades
         return $this->id;
     }
 
-    public function isEsFormacion(): ?bool
+    public function getEsFormacion(): ?bool
     {
         return $this->esFormacion;
     }

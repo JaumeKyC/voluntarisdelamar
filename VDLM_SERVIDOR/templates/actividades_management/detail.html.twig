@@ -1,0 +1,96 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="bg-image" style="background-image: url('/css/BACKGROUND.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="container mb-3">
+        <h3 class="text-center pt-4 mb-4">{{ actividad.getNombre()|upper }} </h3>
+        <div class="row d-flex">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="card text-center">
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 class="text-center mt-4 mb-3"> {{ actividad.getObservaciones() }} </h5>
+                        <h4 class="text-end mb-4"> <a id="nuevo" href="{{ path('app_updateActividad', {id: actividad.getId()}) }}"><i class="fa-solid fa-pen-to-square"></i></a></h4>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">FECHA:&nbsp;</h5>
+                        <h5> {{ date }}&nbsp;&nbsp;&nbsp; </h5>
+                        <h5 style="color:#4774b7;">HORA:&nbsp;</h5>
+                        <h5> {{ hora }} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body d-flex">
+                        <h5 style="color:#4774b7;">UBICACIÓN:&nbsp;</h5>
+                        <h5> {{ actividad.getUbicacion() }} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body mb-2 d-flex">
+                        <h5 style="color:#4774b7;">ENTIDAD ORGANIZADORA:&nbsp;</h5>
+                        <h5> {{ actividad.getEntidadOrganizadora() }}&nbsp;&nbsp;&nbsp; </h5>
+                    </div>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-4"><h5 class="mt-2" style="color:#4774b7;">Nº EMBARCACIONES</h5></td>
+                                <td class="col-6"><h5 class="mt-2">{{ actividad.getNumEmbarcaciones() }}</h5></td>
+                            </tr>
+                            <tr>
+                                <td class="col-6"><h5 class="mt-2" style="color:#4774b7;">Nº MOTOS</h5></td>
+                                <td class="col-6"><h5 class="mt-2">{{ actividad.getNumMotos() }}</h5></td>
+                            </tr>
+                            <tr>
+                                <td class="col-6"><h5 class="mt-2" style="color:#4774b7;">Nº PATRONES</h5></td>
+                                <td class="col-6"><h5 class="mt-2">{{ actividad.getNumPatrones() }}</h5></td>
+                            </tr>
+                            <tr>
+                                <td class="col-6"><h5 class="mt-2" style="color:#4774b7;">Nº TRIPULANTES</h5></td>
+                                <td class="col-6"><h5 class="mt-2">{{ actividad.getNumTripulantes() }}</h5></td>
+                            </tr>
+                            <tr>
+                                <td class="col-6"><h5 class="mt-2" style="color:#4774b7;">Nº SOCORRISTAS</h5></td>
+                                <td class="col-6"><h5 class="mt-2">{{ actividad.getNumSocorristas() }}</h5></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="cardDetail" class="card-body">
+                        <h5 style="color:#4774b7;">VOLUNTARIOS PARTICIPANTES: &nbsp;&nbsp;</h5>
+                        <h5> {{ actividad.getVoluntarios() }}&nbsp; / &nbsp;{{ actividad.getMaxVoluntarios() }} </h5>
+                    </div>
+                    <div id="cardDetail" class="card-body mb-3">
+                        {% if disabled == true  and participa == true %}
+                            <a href="{{ path('app_abandonarActividad', {'type': nombreTipo, 'id': actividad.getId()}) }}"><button id="buttonListActividadDont" class="btn btn-lg btn-primary btn-block">ABANDONAR</button></a>
+                        {% elseif disabled == true and participa == false %}
+                            <button id="buttonListActividadCompleto" class="btn btn-lg btn-primary btn-block" disabled>COMPLETO</button>
+                        {% elseif disabled == false and participa == true %}
+                            <a href="{{ path('app_abandonarActividad', {'type': nombreTipo, 'id': actividad.getId()}) }}"><button id="buttonListActividadDont" class="btn btn-lg btn-primary btn-block">ABANDONAR</button></a>
+                        {% elseif disabled == false and participa == false %}
+                            <a href="{{ path('app_unirseActividad', {'type': nombreTipo, 'id': actividad.getId()}) }}"><button id="buttonListActividad" class="btn btn-lg btn-primary btn-block">PARTICIPAR</button></a>
+                        {% endif %}
+                    </div>
+                    <div id="cardDetail" class="card-body">
+                        <h5 style="color:#4774b7;">LISTADO VOLUNTARIOS PARTICIPANTES:</h5>
+                        <table class="table table-hover mb-5">
+                            <thead>
+                                <tr>
+                                    <th class="col-5">Nombre</th>
+                                    <th class="col-4">Telefono</th>
+                                    <th class="col-3"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for task in participantes %}
+                                <tr>
+                                    <td>{{task.getNombre()}}</td>
+                                    <td>{{task.getTelefono()}}</td>
+                                    <td><a href="{{ path('app_detailUsuarios', {id: task.getId()}) }}"><button class="btn btn-sm btn btn-outline-dark">VER VOLUNTARIO</button></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,3 +1,7 @@
+#cardList{
+    padding: .5em .5em .5em !important;
+}
+
 #card1 {
     background-image: url('EVENTOS.png'); height: 100vh; background-size: cover; background-repeat: no-repeat;
     margin: 50px;
@@ -44,4 +48,35 @@
 
 #alta:hover{
     background-color: #232428;
+}
+
+#cardDetail{
+    padding: 5px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+#buttonListActividad{
+    background-color:#4774b7 !important;
+    border-color: #4774b7 !important;
+}
+
+#buttonListActividad:hover{
+    background-color: #232428 !important;
+    border-color: #232428 !important;
+}
+
+#buttonListActividadDont{
+    background-color: #cc343c9e !important;
+    border-color: #cc343c89 !important;
+}
+
+#buttonListActividadDont:hover{
+    background-color: #232428 !important;
+    border-color: #232428 !important;
+}
+
+#buttonListActividadCompleto{
+    background-color: #5858589e !important;
+    border-color: #5858589e !important;
 }
